@@ -1449,7 +1449,7 @@
   <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
   <nav id="nav">
     <div class="container nav-inner">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <img src="rocket.png" alt="Apna Graphics Logo" class="logo-img">
         <span style="color: var(--red); font-size: 24px;" class="logo-text">Apna </span>
         <span style="color: var(--blue); font-size: 24px;" class="logo-text"> Graphix</span>
@@ -1458,8 +1458,8 @@
       <ul class="nav-links">
         <li><a href="services.html">Services</a></li>
         <li><a href="work.html">Work</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -1475,503 +1475,263 @@
   <div class="mobile-nav" id="mobile-nav" role="navigation">
     <a href="services.html" class="mobile-nav-link">Services</a>
     <a href="work.html" class="mobile-nav-link">Work</a>
-    <a href="#process" class="mobile-nav-link">Process</a>
-    <a href="#pricing" class="mobile-nav-link">Pricing</a>
+    <a href="index.html#process" class="mobile-nav-link">Process</a>
+    <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn--black" style="width:100%;justify-content:center;">Get a Quote ↗</a>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero-grid container" style="padding-inline:0;">
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <span class="tag">✦ Est. 2019 — New Delhi</span>
-          <div class="marquee-line"></div>
-          <span class="tag" style="background:var(--blue);color:var(--white);">Open for Projects</span>
-        </div>
+  <style>
+    .service-detail-card {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: 10px 10px 0 var(--black);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .service-detail-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 14px 14px 0 var(--black);
+    }
+    .service-detail-header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .service-detail-icon {
+      width: 72px;
+      height: 72px;
+      border: var(--border);
+      background: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 4px 4px 0 var(--black);
+      flex-shrink: 0;
+    }
+    .service-detail-icon svg {
+      width: 36px;
+      height: 36px;
+    }
+    .service-detail-title {
+      font-size: 32px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .service-detail-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--black);
+    }
+    .service-detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .service-detail-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .service-detail-list li::before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: var(--blue);
+      border: 2px solid var(--black);
+      flex-shrink: 0;
+    }
+    .services-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
+    }
+    @media (max-width: 1024px) {
+      .services-detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-detail-card {
+        padding: 32px 24px;
+      }
+      .service-detail-title {
+        font-size: 26px;
+      }
+    }
+  </style>
 
-        <div>
-          <h1 class="hero-headline">
-            WE MAKE<br>
-            <span class="accent">BOLD</span><br>
-            <span class="stroke">THINGS.</span>
-          </h1>
-        </div>
-
-        <div class="hero-bottom">
-          <p class="hero-desc">
-            A fearless creative studio crafting brand identities, digital experiences & campaigns that refuse to be
-            ignored. We don't do boring.
-          </p>
-          <div class="hero-actions">
-            <a href="#work" class="btn btn--lg" id="hero-work-btn">See Our Work</a>
-            <a href="contact.html" class="btn btn--blue btn--lg" id="hero-contact-btn">Start a Project ↗</a>
-          </div>
-        </div>
+  <!-- ═══════════════════════════════ HEADER ══════════════════════════════ -->
+  <section style="padding: 100px 0 60px; border-bottom: var(--border); background: var(--white);">
+    <div class="container">
+      <div class="hero-eyebrow" style="margin-bottom: 24px;">
+        <span class="tag">✦ Our Expertise</span>
       </div>
-
-      <div class="hero-right">
-        <div class="hero-badge">AWARD<br>WINNING<br>★ 2025 ★</div>
-
-        <div class="hero-stat-card reveal" style="transition-delay:.1s">
-          <div class="stat-number">340+</div>
-          <div class="stat-label">Projects Delivered</div>
-        </div>
-        <div class="hero-stat-card reveal" style="transition-delay:.2s">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Client Satisfaction Rate</div>
-        </div>
-        <div class="hero-stat-card reveal" style="background:var(--black); transition-delay:.3s">
-          <div class="stat-number" style="color:var(--yellow)">12+</div>
-          <div class="stat-label" style="color:#aaa;">Years of Impact</div>
-        </div>
-
-        <!-- Hand-drawn SVG icon -->
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="position:absolute;bottom:32px;left:32px;opacity:.6">
-          <circle cx="40" cy="40" r="30" stroke="#FFE500" stroke-width="3" stroke-dasharray="6 4" />
-          <path d="M25 40 L55 40 M40 25 L40 55" stroke="#FFE500" stroke-width="3" stroke-linecap="round" />
-          <circle cx="40" cy="40" r="8" fill="#FFE500" />
-        </svg>
-      </div>
+      <h1 class="hero-headline" style="font-size: clamp(52px, 8vw, 100px);">
+        WHAT WE <span class="accent">DO.</span>
+      </h1>
+      <p class="hero-desc" style="max-width: 600px; font-size: 18px; margin-top: 24px;">
+        Everything you need to build, scale, and dominate. We bring bold ideas to life with precision and craft. Explore our full range of services below.
+      </p>
     </div>
   </section>
 
-  <!-- ════════════════════════════ TICKER ═══════════════════════════════ -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker-inner">
-      <!-- doubled for seamless loop -->
-      <span class="ticker-item">Graphic Design & Branding <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Social Media Marketing <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">SEO Optimization <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Paid Advertising <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Website Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">App Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Graphic Design & Branding <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Social Media Marketing <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">SEO Optimization <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Paid Advertising <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Website Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">App Development <span class="ticker-dot">✦</span></span>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════ SERVICES ═══════════════════════════════ -->
-  <section class="services" id="services">
+  <!-- ══════════════════════════ DETAILED SERVICES ═══════════════════════════════ -->
+  <section style="padding: 80px 0; background: var(--white); border-bottom: var(--border);">
     <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">What We<br>Actually Do</h2>
-        <p class="section-sub">No fluff. No filler. Just creative work that moves people and moves needles.</p>
-      </div>
-      <div class="services-grid">
+      <div class="services-detail-grid">
 
         <!-- Graphic Design & Branding -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="4" width="11" height="11" stroke="#0A0A0A" stroke-width="2.5" />
-              <rect x="17" y="4" width="11" height="11" fill="#FFE500" stroke="#0A0A0A" stroke-width="2.5" />
-              <rect x="4" y="17" width="11" height="11" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="22.5" cy="22.5" r="5.5" stroke="#0A0A0A" stroke-width="2.5" />
-            </svg>
+        <div class="service-detail-card reveal" id="graphic-design">
+          <div class="service-detail-header">
+            <div class="service-detail-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="11" height="11" stroke="#0A0A0A" stroke-width="2.5" />
+                <rect x="17" y="4" width="11" height="11" fill="#FFE500" stroke="#0A0A0A" stroke-width="2.5" />
+                <rect x="4" y="17" width="11" height="11" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
+                <circle cx="22.5" cy="22.5" r="5.5" stroke="#0A0A0A" stroke-width="2.5" />
+              </svg>
+            </div>
+            <h2 class="service-detail-title">Graphic Design<br>& Branding</h2>
           </div>
-          <div class="service-num">01 — Branding</div>
-          <div class="service-name">Graphic Design<br>& Branding</div>
-          <div class="service-desc">Professional and creative design services that give your brand a unique identity.</div>
-          <a href="services.html#graphic-design" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
+          <p class="service-detail-desc">Professional and creative design services that give your brand a unique identity.</p>
+          <ul class="service-detail-list">
+            <li>Logo Design & Brand Identity</li>
+            <li>Business Cards & Stationery</li>
+            <li>Banners, Posters & Flyers</li>
+            <li>Social Media Creatives</li>
+          </ul>
+          <a href="contact.html" class="btn btn--black" style="justify-content: center;">Start a Project ↗</a>
         </div>
 
         <!-- Social Media Marketing -->
-        <div class="service-card reveal" style="transition-delay:.08s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="26" cy="6" r="4" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="6" cy="16" r="4" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="26" cy="26" r="4" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="10" y1="14" x2="22" y2="8" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
-              <line x1="10" y1="18" x2="22" y2="24" stroke="#FFE500" stroke-width="2.5" stroke-linecap="round" />
-            </svg>
+        <div class="service-detail-card reveal" id="social-media" style="background: var(--blue); color: var(--white);">
+          <div class="service-detail-header">
+            <div class="service-detail-icon" style="background: var(--white);">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="26" cy="6" r="4" stroke="#0A0A0A" stroke-width="2.5" />
+                <circle cx="6" cy="16" r="4" stroke="#0A0A0A" stroke-width="2.5" />
+                <circle cx="26" cy="26" r="4" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
+                <line x1="10" y1="14" x2="22" y2="8" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
+                <line x1="10" y1="18" x2="22" y2="24" stroke="#FFE500" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h2 class="service-detail-title" style="color: var(--white);">Social Media<br>Marketing</h2>
           </div>
-          <div class="service-num">02 — Marketing</div>
-          <div class="service-name">Social Media<br>Marketing</div>
-          <div class="service-desc">Grow your brand on social platforms with engaging content and consistent posting.</div>
-          <a href="services.html#social-media" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
+          <p class="service-detail-desc" style="color: rgba(255,255,255,0.9); border-bottom-color: var(--white);">Grow your brand on social platforms with engaging content and consistent posting.</p>
+          <ul class="service-detail-list">
+            <li>Content Creation & Posting</li>
+            <li>Reels & Video Editing</li>
+            <li>Audience Growth Strategy</li>
+            <li>Paid Social Ads (Meta)</li>
+          </ul>
+          <a href="contact.html" class="btn btn--yellow" style="justify-content: center; color: var(--black);">Start a Project ↗</a>
         </div>
 
         <!-- SEO Optimization -->
-        <div class="service-card reveal" style="transition-delay:.16s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 28 L16 4 L28 28 Z" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round" />
-              <path d="M9 20 L23 20" stroke="#FFE500" stroke-width="3" stroke-linecap="round" />
-              <circle cx="16" cy="16" r="3.5" fill="#0047FF" stroke="#0A0A0A" stroke-width="2" />
-            </svg>
+        <div class="service-detail-card reveal" id="seo" style="background: var(--yellow);">
+          <div class="service-detail-header">
+            <div class="service-detail-icon" style="background: var(--white);">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 28 L16 4 L28 28 Z" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round" />
+                <path d="M9 20 L23 20" stroke="#0047FF" stroke-width="3" stroke-linecap="round" />
+                <circle cx="16" cy="16" r="3.5" fill="#0047FF" stroke="#0A0A0A" stroke-width="2" />
+              </svg>
+            </div>
+            <h2 class="service-detail-title">SEO<br>Optimization</h2>
           </div>
-          <div class="service-num">03 — Growth</div>
-          <div class="service-name">SEO<br>Optimization</div>
-          <div class="service-desc">Improve your Google ranking and get more organic traffic with proven SEO techniques.</div>
-          <a href="services.html#seo" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
+          <p class="service-detail-desc">Improve your Google ranking and get more organic traffic with proven SEO techniques.</p>
+          <ul class="service-detail-list">
+            <li>Keyword Research</li>
+            <li>On-Page SEO</li>
+            <li>Off-Page SEO</li>
+            <li>Technical SEO & Site Audit</li>
+          </ul>
+          <a href="contact.html" class="btn btn--black" style="justify-content: center;">Start a Project ↗</a>
         </div>
 
         <!-- Paid Advertising -->
-        <div class="service-card reveal" style="transition-delay:.04s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 3 L29 10 L29 22 L16 29 L3 22 L3 10 Z" stroke="#0A0A0A" stroke-width="2.5"
-                stroke-linejoin="round" />
-              <path d="M3 10 L16 17 L29 10" stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round" />
-              <line x1="16" y1="17" x2="16" y2="29" stroke="#0A0A0A" stroke-width="2" />
-              <polygon points="16,3 10,9 16,12 22,9" fill="#FFE500" stroke="#0A0A0A" stroke-width="1.5" />
-            </svg>
+        <div class="service-detail-card reveal" id="paid-ads">
+          <div class="service-detail-header">
+            <div class="service-detail-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 3 L29 10 L29 22 L16 29 L3 22 L3 10 Z" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round" />
+                <path d="M3 10 L16 17 L29 10" stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round" />
+                <line x1="16" y1="17" x2="16" y2="29" stroke="#0A0A0A" stroke-width="2" />
+                <polygon points="16,3 10,9 16,12 22,9" fill="#0047FF" stroke="#0A0A0A" stroke-width="1.5" />
+              </svg>
+            </div>
+            <h2 class="service-detail-title">Paid Advertising<br>(Google & Meta)</h2>
           </div>
-          <div class="service-num">04 — Ads</div>
-          <div class="service-name">Paid Advertising<br>(Google & Meta)</div>
-          <div class="service-desc">Run targeted ad campaigns to generate quality leads and increase sales.</div>
-          <a href="services.html#paid-ads" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
+          <p class="service-detail-desc">Run targeted ad campaigns to generate quality leads and increase sales.</p>
+          <ul class="service-detail-list">
+            <li>Google Ads (Search & Display)</li>
+            <li>Facebook & Instagram Ads</li>
+            <li>Lead Generation Campaigns</li>
+            <li>Performance Tracking & Optimization</li>
+          </ul>
+          <a href="contact.html" class="btn btn--black" style="justify-content: center;">Start a Project ↗</a>
         </div>
 
         <!-- Website Development -->
-        <div class="service-card reveal" style="transition-delay:.12s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="3" width="26" height="26" rx="0" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="3" y1="10" x2="29" y2="10" stroke="#0A0A0A" stroke-width="2" />
-              <circle cx="7" cy="6.5" r="1.5" fill="#FF2D00" />
-              <circle cx="11.5" cy="6.5" r="1.5" fill="#FFE500" />
-              <circle cx="16" cy="6.5" r="1.5" fill="#00C853" />
-              <rect x="7" y="15" width="8" height="5" fill="#0047FF" />
-              <rect x="18" y="15" width="7" height="11" fill="#FFE500" stroke="#0A0A0A" stroke-width="1.5" />
-              <rect x="7" y="22" width="8" height="5" stroke="#0A0A0A" stroke-width="1.5" />
-            </svg>
+        <div class="service-detail-card reveal" id="web-dev" style="background: var(--black); color: var(--white);">
+          <div class="service-detail-header">
+            <div class="service-detail-icon" style="background: var(--yellow);">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="26" height="26" rx="0" stroke="#0A0A0A" stroke-width="2.5" />
+                <line x1="3" y1="10" x2="29" y2="10" stroke="#0A0A0A" stroke-width="2" />
+                <circle cx="7" cy="6.5" r="1.5" fill="#FF2D00" />
+                <circle cx="11.5" cy="6.5" r="1.5" fill="#00C853" />
+                <circle cx="16" cy="6.5" r="1.5" fill="#0047FF" />
+                <rect x="7" y="15" width="8" height="5" fill="#0047FF" />
+                <rect x="18" y="15" width="7" height="11" fill="#00C853" stroke="#0A0A0A" stroke-width="1.5" />
+                <rect x="7" y="22" width="8" height="5" stroke="#0A0A0A" stroke-width="1.5" />
+              </svg>
+            </div>
+            <h2 class="service-detail-title" style="color: var(--white);">Website<br>Development</h2>
           </div>
-          <div class="service-num">05 — Web</div>
-          <div class="service-name">Website<br>Development</div>
-          <div class="service-desc">Fast, secure and responsive websites designed to convert visitors into customers.</div>
-          <a href="services.html#web-dev" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
+          <p class="service-detail-desc" style="color: rgba(255,255,255,0.9); border-bottom-color: var(--white);">Fast, secure and responsive websites designed to convert visitors into customers.</p>
+          <ul class="service-detail-list">
+            <li>Business & Portfolio Websites</li>
+            <li>eCommerce Website Development</li>
+            <li>WordPress & Custom Websites</li>
+            <li>SEO-Friendly & Mobile Responsive</li>
+          </ul>
+          <a href="contact.html" class="btn btn--white" style="justify-content: center;">Start a Project ↗</a>
         </div>
 
         <!-- App Development -->
-        <div class="service-card reveal" style="transition-delay:.20s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="7" y="3" width="18" height="26" rx="3" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="14" y1="25" x2="18" y2="25" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="service-num">06 — Apps</div>
-          <div class="service-name">App<br>Development</div>
-          <div class="service-desc">Modern Android and web apps built for performance, speed, and scalability.</div>
-          <a href="services.html#app-dev" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════ PROCESS ════════════════════════════════ -->
-  <section class="process" id="process">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">How We<br>Work</h2>
-        <p class="section-sub">Our four-phase process delivers ambitious results without the chaos.</p>
-      </div>
-      <div class="process-steps">
-        <div class="step-card reveal">
-          <div class="step-number">01</div>
-          <div class="step-tag">Discovery</div>
-          <div class="step-title">Brief &<br>Research</div>
-          <div class="step-desc">We dig deep into your brand, audience, competitors, and goals before a single pixel is
-            placed.</div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.08s">
-          <div class="step-number">02</div>
-          <div class="step-tag">Concept</div>
-          <div class="step-title">Explore &<br>Ideate</div>
-          <div class="step-desc">Multiple bold directions presented as fully-formed concepts — not half-baked sketches.
-          </div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.16s">
-          <div class="step-number">03</div>
-          <div class="step-tag">Design</div>
-          <div class="step-title">Refine &<br>Execute</div>
-          <div class="step-desc">We craft and polish the chosen direction with obsessive attention to craft and
-            consistency.</div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.24s">
-          <div class="step-number">04</div>
-          <div class="step-tag">Delivery</div>
-          <div class="step-title">Launch &<br>Support</div>
-          <div class="step-desc">Clean file handoff in every format you need, plus a 30-day support window post-launch.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════ WORK ═════════════════════════════════ -->
-  <section class="work" id="work">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Selected<br>Work</h2>
-        <a href="#" class="btn" id="view-all-btn">View All Projects →</a>
-      </div>
-      <div class="work-grid">
-        <div class="work-item reveal">
-          <div class="work-thumb" style="background:#FFE500;">🎨</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Zoro Beverages</div>
-              <div class="work-cat">Brand Identity</div>
+        <div class="service-detail-card reveal" id="app-dev">
+          <div class="service-detail-header">
+            <div class="service-detail-icon" style="background: #00C853;">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="7" y="3" width="18" height="26" rx="3" stroke="#0A0A0A" stroke-width="2.5" />
+                <line x1="14" y1="25" x2="18" y2="25" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
+              </svg>
             </div>
-            <span>→</span>
+            <h2 class="service-detail-title">App<br>Development</h2>
           </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.06s">
-          <div class="work-thumb" style="background:#0047FF;">🚀</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Nexus Labs</div>
-              <div class="work-cat">UI / UX Design</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.04s">
-          <div class="work-thumb" style="background:#FF2D00;">🎬</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Kira Fashion</div>
-              <div class="work-cat">Packaging</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.10s">
-          <div class="work-thumb" style="background:#0A0A0A; color:#FFE500">✦</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Orbit Media</div>
-              <div class="work-cat">Motion Graphics</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.16s">
-          <div class="work-thumb" style="background:#00C853;">📦</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Dune Coffee</div>
-              <div class="work-cat">Brand + Print</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- ═══════════════════════ TESTIMONIALS ══════════════════════════════ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Clients<br>Say It Best</h2>
-        <div class="tag">★★★★★ Rated 4.9/5</div>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card reveal" style="border-left:var(--border);">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Apna Graphics didn't just design our logo — they gave our entire company a personality.
-            Our rebrand drove a 60% increase in web traffic within three months.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RK</div>
-            <div>
-              <div class="testi-name">Rajesh Kumar</div>
-              <div class="testi-role">CEO — Nexus Labs</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card reveal" style="transition-delay:.08s">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">We gave them one sliding brief. They came back with three insanely different concepts.
-            The one we chose has won two regional design awards since launch.</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background:var(--red)">AP</div>
-            <div>
-              <div class="testi-name">Ananya Patel</div>
-              <div class="testi-role">Brand Director — Kira Fashion</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card reveal" style="transition-delay:.16s">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Fast, communicative, and frighteningly talented. They nailed our packaging on the first
-            round. The Dune branding is now our single biggest conversion driver.</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background:var(--black)">SM</div>
-            <div>
-              <div class="testi-name">Sameer Mehta</div>
-              <div class="testi-role">Founder — Dune Coffee</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════ CLIENTS ══════════════════════════════ -->
-  <section class="clients">
-    <div class="container">
-      <div class="clients-label">Trusted by 80+ brands across India & beyond</div>
-      <div class="clients-row">
-        <div class="client-logo">ZORO</div>
-        <div class="client-logo">NEXUS</div>
-        <div class="client-logo">KIRA</div>
-        <div class="client-logo">ORBIT</div>
-        <div class="client-logo">DUNE</div>
-        <div class="client-logo">NOVA</div>
-        <div class="client-logo">VIBE CO</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ PRICING ═══════════════════════════════ -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Straight-Up<br>Pricing</h2>
-        <p class="section-sub">No hidden fees. No retainer surprises. Just honest, flat-rate creative work.</p>
-      </div>
-      <div class="pricing-grid">
-
-        <!-- Starter -->
-        <div class="price-card reveal" style="border-left:var(--border);">
-          <div class="price-plan">Starter</div>
-          <div class="price-amount">₹24K</div>
-          <div class="price-period">one-time project fee</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Logo design (3 concepts)
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Brand colour & type guide
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              2 rounds of revisions
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              All source files included
-            </li>
+          <p class="service-detail-desc">Modern Android and web apps built for performance, speed, and scalability.</p>
+          <ul class="service-detail-list">
+            <li>Android App Development</li>
+            <li>Web App Development</li>
+            <li>UI/UX Design</li>
+            <li>Backend & API Integration</li>
           </ul>
-          <a href="contact.html" class="btn btn--black" id="starter-btn">Get Started →</a>
-        </div>
-
-        <!-- Studio (featured) -->
-        <div class="price-card featured reveal" style="transition-delay:.08s">
-          <div class="price-popular">Most Popular</div>
-          <div class="price-plan">Studio</div>
-          <div class="price-amount">₹64K</div>
-          <div class="price-period">one-time project fee</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Full brand identity system
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Website UI design (5 screens)
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Social media template pack
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Unlimited revisions — 14 days
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Brand launch support
-            </li>
-          </ul>
-          <a href="contact.html" class="btn" id="studio-btn">Get Started →</a>
-        </div>
-
-        <!-- Enterprise -->
-        <div class="price-card reveal" style="transition-delay:.16s">
-          <div class="price-plan">Enterprise</div>
-          <div class="price-amount">Custom</div>
-          <div class="price-period">tailored to scale</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Dedicated creative team
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Monthly retainer options
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Priority turnaround
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Full-stack creative output
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Strategy & creative direction
-            </li>
-          </ul>
-          <a href="contact.html" class="btn btn--blue" id="enterprise-btn">Let's Talk ↗</a>
+          <a href="contact.html" class="btn btn--black" style="justify-content: center;">Start a Project ↗</a>
         </div>
 
       </div>

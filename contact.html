@@ -1437,6 +1437,109 @@
         padding: 20px 24px;
       }
     }
+      /* ─── CONTACT PAGE STYLES ─────────────────────────── */
+    .contact-hero {
+      padding: 120px 0 80px;
+      background: var(--white);
+      border-bottom: var(--border);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: var(--border);
+      box-shadow: 16px 16px 0 var(--black);
+      margin-top: 40px;
+      background: var(--white);
+    }
+    @media (max-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-left { border-right: none; border-bottom: var(--border); padding: 40px 24px; }
+      .contact-right { padding: 40px 24px; }
+    }
+    .contact-left {
+      padding: 60px;
+      border-right: var(--border);
+      background: var(--yellow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-right {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      background: var(--white);
+    }
+    .whatsapp-card {
+      background: #25D366;
+      border: var(--border);
+      box-shadow: 8px 8px 0 var(--black);
+      padding: 40px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: block;
+      text-decoration: none;
+      color: var(--black);
+    }
+    .whatsapp-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0 var(--black);
+    }
+    .wa-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: var(--white);
+      border: var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 4px 4px 0 var(--black);
+    }
+    .wa-title {
+      font-size: 36px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .wa-desc {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .contact-method {
+      padding-bottom: 24px;
+      border-bottom: 2px dashed #ccc;
+    }
+    .contact-method:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .cm-label {
+      font-family: var(--ff-mono);
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .cm-value {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .cm-value a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .cm-value a:hover {
+      color: var(--red);
+    }
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1483,501 +1586,53 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero-grid container" style="padding-inline:0;">
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <span class="tag">✦ Est. 2019 — New Delhi</span>
-          <div class="marquee-line"></div>
-          <span class="tag" style="background:var(--blue);color:var(--white);">Open for Projects</span>
-        </div>
-
-        <div>
-          <h1 class="hero-headline">
-            WE MAKE<br>
-            <span class="accent">BOLD</span><br>
-            <span class="stroke">THINGS.</span>
-          </h1>
-        </div>
-
-        <div class="hero-bottom">
-          <p class="hero-desc">
-            A fearless creative studio crafting brand identities, digital experiences & campaigns that refuse to be
-            ignored. We don't do boring.
-          </p>
-          <div class="hero-actions">
-            <a href="#work" class="btn btn--lg" id="hero-work-btn">See Our Work</a>
-            <a href="contact.html" class="btn btn--blue btn--lg" id="hero-contact-btn">Start a Project ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="hero-badge">AWARD<br>WINNING<br>★ 2025 ★</div>
-
-        <div class="hero-stat-card reveal" style="transition-delay:.1s">
-          <div class="stat-number">340+</div>
-          <div class="stat-label">Projects Delivered</div>
-        </div>
-        <div class="hero-stat-card reveal" style="transition-delay:.2s">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Client Satisfaction Rate</div>
-        </div>
-        <div class="hero-stat-card reveal" style="background:var(--black); transition-delay:.3s">
-          <div class="stat-number" style="color:var(--yellow)">12+</div>
-          <div class="stat-label" style="color:#aaa;">Years of Impact</div>
-        </div>
-
-        <!-- Hand-drawn SVG icon -->
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="position:absolute;bottom:32px;left:32px;opacity:.6">
-          <circle cx="40" cy="40" r="30" stroke="#FFE500" stroke-width="3" stroke-dasharray="6 4" />
-          <path d="M25 40 L55 40 M40 25 L40 55" stroke="#FFE500" stroke-width="3" stroke-linecap="round" />
-          <circle cx="40" cy="40" r="8" fill="#FFE500" />
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════ TICKER ═══════════════════════════════ -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker-inner">
-      <!-- doubled for seamless loop -->
-      <span class="ticker-item">Graphic Design & Branding <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Social Media Marketing <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">SEO Optimization <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Paid Advertising <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Website Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">App Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Graphic Design & Branding <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Social Media Marketing <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">SEO Optimization <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Paid Advertising <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Website Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">App Development <span class="ticker-dot">✦</span></span>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════ SERVICES ═══════════════════════════════ -->
-  <section class="services" id="services">
+  <!-- ═══════════════════════════════ CONTACT SECTION ══════════════════════════════ -->
+  <section class="contact-hero">
     <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">What We<br>Actually Do</h2>
-        <p class="section-sub">No fluff. No filler. Just creative work that moves people and moves needles.</p>
+      <div class="hero-eyebrow" style="margin-bottom: 24px;">
+        <span class="tag" style="background: var(--black); color: var(--white);">✦ Get In Touch</span>
       </div>
-      <div class="services-grid">
-
-        <!-- Graphic Design & Branding -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="4" width="11" height="11" stroke="#0A0A0A" stroke-width="2.5" />
-              <rect x="17" y="4" width="11" height="11" fill="#FFE500" stroke="#0A0A0A" stroke-width="2.5" />
-              <rect x="4" y="17" width="11" height="11" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="22.5" cy="22.5" r="5.5" stroke="#0A0A0A" stroke-width="2.5" />
-            </svg>
-          </div>
-          <div class="service-num">01 — Branding</div>
-          <div class="service-name">Graphic Design<br>& Branding</div>
-          <div class="service-desc">Professional and creative design services that give your brand a unique identity.</div>
-          <a href="services.html#graphic-design" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- Social Media Marketing -->
-        <div class="service-card reveal" style="transition-delay:.08s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="26" cy="6" r="4" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="6" cy="16" r="4" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="26" cy="26" r="4" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="10" y1="14" x2="22" y2="8" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
-              <line x1="10" y1="18" x2="22" y2="24" stroke="#FFE500" stroke-width="2.5" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="service-num">02 — Marketing</div>
-          <div class="service-name">Social Media<br>Marketing</div>
-          <div class="service-desc">Grow your brand on social platforms with engaging content and consistent posting.</div>
-          <a href="services.html#social-media" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- SEO Optimization -->
-        <div class="service-card reveal" style="transition-delay:.16s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 28 L16 4 L28 28 Z" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round" />
-              <path d="M9 20 L23 20" stroke="#FFE500" stroke-width="3" stroke-linecap="round" />
-              <circle cx="16" cy="16" r="3.5" fill="#0047FF" stroke="#0A0A0A" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="service-num">03 — Growth</div>
-          <div class="service-name">SEO<br>Optimization</div>
-          <div class="service-desc">Improve your Google ranking and get more organic traffic with proven SEO techniques.</div>
-          <a href="services.html#seo" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- Paid Advertising -->
-        <div class="service-card reveal" style="transition-delay:.04s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 3 L29 10 L29 22 L16 29 L3 22 L3 10 Z" stroke="#0A0A0A" stroke-width="2.5"
-                stroke-linejoin="round" />
-              <path d="M3 10 L16 17 L29 10" stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round" />
-              <line x1="16" y1="17" x2="16" y2="29" stroke="#0A0A0A" stroke-width="2" />
-              <polygon points="16,3 10,9 16,12 22,9" fill="#FFE500" stroke="#0A0A0A" stroke-width="1.5" />
-            </svg>
-          </div>
-          <div class="service-num">04 — Ads</div>
-          <div class="service-name">Paid Advertising<br>(Google & Meta)</div>
-          <div class="service-desc">Run targeted ad campaigns to generate quality leads and increase sales.</div>
-          <a href="services.html#paid-ads" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- Website Development -->
-        <div class="service-card reveal" style="transition-delay:.12s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="3" width="26" height="26" rx="0" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="3" y1="10" x2="29" y2="10" stroke="#0A0A0A" stroke-width="2" />
-              <circle cx="7" cy="6.5" r="1.5" fill="#FF2D00" />
-              <circle cx="11.5" cy="6.5" r="1.5" fill="#FFE500" />
-              <circle cx="16" cy="6.5" r="1.5" fill="#00C853" />
-              <rect x="7" y="15" width="8" height="5" fill="#0047FF" />
-              <rect x="18" y="15" width="7" height="11" fill="#FFE500" stroke="#0A0A0A" stroke-width="1.5" />
-              <rect x="7" y="22" width="8" height="5" stroke="#0A0A0A" stroke-width="1.5" />
-            </svg>
-          </div>
-          <div class="service-num">05 — Web</div>
-          <div class="service-name">Website<br>Development</div>
-          <div class="service-desc">Fast, secure and responsive websites designed to convert visitors into customers.</div>
-          <a href="services.html#web-dev" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- App Development -->
-        <div class="service-card reveal" style="transition-delay:.20s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="7" y="3" width="18" height="26" rx="3" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="14" y1="25" x2="18" y2="25" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="service-num">06 — Apps</div>
-          <div class="service-name">App<br>Development</div>
-          <div class="service-desc">Modern Android and web apps built for performance, speed, and scalability.</div>
-          <a href="services.html#app-dev" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════ PROCESS ════════════════════════════════ -->
-  <section class="process" id="process">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">How We<br>Work</h2>
-        <p class="section-sub">Our four-phase process delivers ambitious results without the chaos.</p>
-      </div>
-      <div class="process-steps">
-        <div class="step-card reveal">
-          <div class="step-number">01</div>
-          <div class="step-tag">Discovery</div>
-          <div class="step-title">Brief &<br>Research</div>
-          <div class="step-desc">We dig deep into your brand, audience, competitors, and goals before a single pixel is
-            placed.</div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.08s">
-          <div class="step-number">02</div>
-          <div class="step-tag">Concept</div>
-          <div class="step-title">Explore &<br>Ideate</div>
-          <div class="step-desc">Multiple bold directions presented as fully-formed concepts — not half-baked sketches.
-          </div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.16s">
-          <div class="step-number">03</div>
-          <div class="step-tag">Design</div>
-          <div class="step-title">Refine &<br>Execute</div>
-          <div class="step-desc">We craft and polish the chosen direction with obsessive attention to craft and
-            consistency.</div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.24s">
-          <div class="step-number">04</div>
-          <div class="step-tag">Delivery</div>
-          <div class="step-title">Launch &<br>Support</div>
-          <div class="step-desc">Clean file handoff in every format you need, plus a 30-day support window post-launch.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════ WORK ═════════════════════════════════ -->
-  <section class="work" id="work">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Selected<br>Work</h2>
-        <a href="#" class="btn" id="view-all-btn">View All Projects →</a>
-      </div>
-      <div class="work-grid">
-        <div class="work-item reveal">
-          <div class="work-thumb" style="background:#FFE500;">🎨</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Zoro Beverages</div>
-              <div class="work-cat">Brand Identity</div>
+      <h1 class="hero-headline" style="font-size: clamp(52px, 8vw, 100px); color: var(--black);">
+        LET'S START A<br>
+        <span class="accent" style="color: var(--yellow); -webkit-text-stroke: 3px var(--black);">CONVERSATION.</span>
+      </h1>
+      
+      <div class="contact-grid">
+        <div class="contact-left">
+          <a href="https://wa.me/919876543210?text=Hi%20Apna%20Graphics!%20I%20want%20to%20discuss%20a%20new%20project." target="_blank" class="whatsapp-card reveal">
+            <div class="wa-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 0C5.385 0 0 5.385 0 12.031C0 14.664 0.846 17.104 2.25 19.141L0.573 23.417L4.99 21.75C6.969 23.01 9.406 23.75 12.031 23.75C18.677 23.75 24.062 18.365 24.062 11.719C24.062 5.073 18.677 0 12.031 0ZM12.031 21.75C9.698 21.75 7.552 20.979 5.813 19.688L5.427 19.458L2.573 20.375L3.521 17.615L3.26 17.188C1.865 15.656 1.042 13.917 1.042 12.031C1.042 5.969 5.969 1.042 12.031 1.042C18.094 1.042 23.021 5.969 23.021 12.031C23.021 18.094 18.094 21.75 12.031 21.75ZM17.917 15.708C17.604 15.542 16.031 14.771 15.719 14.656C15.406 14.542 15.188 14.479 14.958 14.812C14.729 15.146 14.125 15.854 13.927 16.083C13.74 16.312 13.542 16.333 13.229 16.188C12.917 16.031 11.875 15.688 10.635 14.583C9.656 13.708 8.99 12.635 8.802 12.323C8.615 12.01 8.781 11.844 8.938 11.688C9.073 11.552 9.24 11.333 9.396 11.156C9.552 10.969 9.615 10.844 9.771 10.604C9.927 10.365 9.844 10.156 9.771 10C9.688 9.844 9.031 8.219 8.76 7.552C8.5 6.906 8.229 6.99 8.031 6.99C7.844 6.99 7.625 6.99 7.396 6.99C7.167 6.99 6.781 7.073 6.469 7.406C6.156 7.74 5.25 8.594 5.25 10.333C5.25 12.073 6.51 13.74 6.698 13.99C6.885 14.24 9.177 17.781 12.667 19.292C13.5 19.656 14.146 19.875 14.656 20.031C15.49 20.292 16.25 20.26 16.854 20.156C17.531 20.031 18.969 19.26 19.271 18.427C19.573 17.594 19.573 16.885 19.479 16.719C19.385 16.552 19.167 16.458 18.854 16.302L17.917 15.708Z" />
+              </svg>
             </div>
-            <span>→</span>
-          </div>
+            <h2 class="wa-title">Chat on WhatsApp</h2>
+            <p class="wa-desc">Fastest way to reach us. We reply within minutes.</p>
+            <div style="margin-top:24px; font-family:var(--ff-mono); font-size:14px; color:var(--black); background:rgba(0,0,0,0.1); padding:8px 16px; border-radius:20px; display:inline-block; border: 2px solid var(--black);">+91 98765 43210</div>
+          </a>
         </div>
-        <div class="work-item reveal" style="transition-delay:.06s">
-          <div class="work-thumb" style="background:#0047FF;">🚀</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Nexus Labs</div>
-              <div class="work-cat">UI / UX Design</div>
-            </div>
-            <span>→</span>
+        
+        <div class="contact-right reveal" style="transition-delay: 0.1s;">
+          <div class="contact-method">
+            <div class="cm-label">Drop Us An Email</div>
+            <div class="cm-value"><a href="mailto:hello@apnagraphics.in">hello@apnagraphics.in</a></div>
           </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.04s">
-          <div class="work-thumb" style="background:#FF2D00;">🎬</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Kira Fashion</div>
-              <div class="work-cat">Packaging</div>
-            </div>
-            <span>→</span>
+          
+          <div class="contact-method">
+            <div class="cm-label">Call Us Directly</div>
+            <div class="cm-value"><a href="tel:+919876543210">+91 98765 43210</a></div>
           </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.10s">
-          <div class="work-thumb" style="background:#0A0A0A; color:#FFE500">✦</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Orbit Media</div>
-              <div class="work-cat">Motion Graphics</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.16s">
-          <div class="work-thumb" style="background:#00C853;">📦</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Dune Coffee</div>
-              <div class="work-cat">Brand + Print</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- ═══════════════════════ TESTIMONIALS ══════════════════════════════ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Clients<br>Say It Best</h2>
-        <div class="tag">★★★★★ Rated 4.9/5</div>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card reveal" style="border-left:var(--border);">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Apna Graphics didn't just design our logo — they gave our entire company a personality.
-            Our rebrand drove a 60% increase in web traffic within three months.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RK</div>
-            <div>
-              <div class="testi-name">Rajesh Kumar</div>
-              <div class="testi-role">CEO — Nexus Labs</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card reveal" style="transition-delay:.08s">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">We gave them one sliding brief. They came back with three insanely different concepts.
-            The one we chose has won two regional design awards since launch.</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background:var(--red)">AP</div>
-            <div>
-              <div class="testi-name">Ananya Patel</div>
-              <div class="testi-role">Brand Director — Kira Fashion</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card reveal" style="transition-delay:.16s">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Fast, communicative, and frighteningly talented. They nailed our packaging on the first
-            round. The Dune branding is now our single biggest conversion driver.</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background:var(--black)">SM</div>
-            <div>
-              <div class="testi-name">Sameer Mehta</div>
-              <div class="testi-role">Founder — Dune Coffee</div>
+          
+          <div class="contact-method">
+            <div class="cm-label">Visit Our Studio</div>
+            <div class="cm-value" style="font-size: 18px; line-height: 1.5;">
+              Studio 401, Hauz Khas Village,<br>
+              New Delhi — 110016
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ════════════════════════════ CLIENTS ══════════════════════════════ -->
-  <section class="clients">
-    <div class="container">
-      <div class="clients-label">Trusted by 80+ brands across India & beyond</div>
-      <div class="clients-row">
-        <div class="client-logo">ZORO</div>
-        <div class="client-logo">NEXUS</div>
-        <div class="client-logo">KIRA</div>
-        <div class="client-logo">ORBIT</div>
-        <div class="client-logo">DUNE</div>
-        <div class="client-logo">NOVA</div>
-        <div class="client-logo">VIBE CO</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ PRICING ═══════════════════════════════ -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Straight-Up<br>Pricing</h2>
-        <p class="section-sub">No hidden fees. No retainer surprises. Just honest, flat-rate creative work.</p>
-      </div>
-      <div class="pricing-grid">
-
-        <!-- Starter -->
-        <div class="price-card reveal" style="border-left:var(--border);">
-          <div class="price-plan">Starter</div>
-          <div class="price-amount">₹24K</div>
-          <div class="price-period">one-time project fee</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Logo design (3 concepts)
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Brand colour & type guide
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              2 rounds of revisions
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              All source files included
-            </li>
-          </ul>
-          <a href="contact.html" class="btn btn--black" id="starter-btn">Get Started →</a>
-        </div>
-
-        <!-- Studio (featured) -->
-        <div class="price-card featured reveal" style="transition-delay:.08s">
-          <div class="price-popular">Most Popular</div>
-          <div class="price-plan">Studio</div>
-          <div class="price-amount">₹64K</div>
-          <div class="price-period">one-time project fee</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Full brand identity system
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Website UI design (5 screens)
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Social media template pack
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Unlimited revisions — 14 days
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Brand launch support
-            </li>
-          </ul>
-          <a href="contact.html" class="btn" id="studio-btn">Get Started →</a>
-        </div>
-
-        <!-- Enterprise -->
-        <div class="price-card reveal" style="transition-delay:.16s">
-          <div class="price-plan">Enterprise</div>
-          <div class="price-amount">Custom</div>
-          <div class="price-period">tailored to scale</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Dedicated creative team
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Monthly retainer options
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Priority turnaround
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Full-stack creative output
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Strategy & creative direction
-            </li>
-          </ul>
-          <a href="contact.html" class="btn btn--blue" id="enterprise-btn">Let's Talk ↗</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ════════════════════════════ CTA ══════════════════════════════════ -->
   <section class="cta-section" id="contact">
     <div class="cta-bg-text">GO</div>
@@ -2119,3 +1774,4 @@
 </body>
 
 </html>
+

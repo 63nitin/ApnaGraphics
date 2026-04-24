@@ -1449,7 +1449,7 @@
   <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
   <nav id="nav">
     <div class="container nav-inner">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <img src="rocket.png" alt="Apna Graphics Logo" class="logo-img">
         <span style="color: var(--red); font-size: 24px;" class="logo-text">Apna </span>
         <span style="color: var(--blue); font-size: 24px;" class="logo-text"> Graphix</span>
@@ -1458,8 +1458,8 @@
       <ul class="nav-links">
         <li><a href="services.html">Services</a></li>
         <li><a href="work.html">Work</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -1475,505 +1475,513 @@
   <div class="mobile-nav" id="mobile-nav" role="navigation">
     <a href="services.html" class="mobile-nav-link">Services</a>
     <a href="work.html" class="mobile-nav-link">Work</a>
-    <a href="#process" class="mobile-nav-link">Process</a>
-    <a href="#pricing" class="mobile-nav-link">Pricing</a>
+    <a href="index.html#process" class="mobile-nav-link">Process</a>
+    <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn--black" style="width:100%;justify-content:center;">Get a Quote ↗</a>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero-grid container" style="padding-inline:0;">
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <span class="tag">✦ Est. 2019 — New Delhi</span>
-          <div class="marquee-line"></div>
-          <span class="tag" style="background:var(--blue);color:var(--white);">Open for Projects</span>
-        </div>
+  <style>
+    /* ─── TEAM ANIMATIONS & STYLES ─────────────────────────── */
+    .team-hero {
+      padding: 120px 0 60px;
+      border-bottom: var(--border);
+      background: var(--yellow);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .team-hero-bg-text {
+      position: absolute;
+      top: 18%;
+      transform: translateY(-50%);
+      left: 0;
+      font-size: 15vw;
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 4px rgba(0, 0, 0, 0.15);
+      line-height: 0.8;
+      pointer-events: none;
+      white-space: nowrap;
+      animation: panLeft 30s linear infinite;
+    }
+    
+    @keyframes panLeft {
+      0% { transform: translate(0, -50%); }
+      100% { transform: translate(-50%, -50%); }
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      padding: 80px 0;
+    }
+    
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    
+    .team-card {
+      background: var(--white);
+      border: var(--border);
+      box-shadow: 8px 8px 0 var(--black);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      cursor: pointer;
+    }
+    
+    .team-card:hover {
+      transform: translate(-6px, -6px);
+      box-shadow: 14px 14px 0 var(--black);
+    }
+    
+    .team-img-wrapper {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-bottom: var(--border);
+      background: #EAEAEA; /* Placeholder background */
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Placeholder styles for images until user adds real ones */
+    .team-placeholder-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 64px;
+      opacity: 0.2;
+    }
+    
+    .team-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      /* opacity: 0; user will add src to show */
+    }
+    
+    .team-card:hover .team-img {
+      transform: scale(1.08) rotate(1deg);
+    }
+    
+    .team-info {
+      padding: 24px;
+      background: var(--white);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .team-name {
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    
+    .team-role {
+      font-family: var(--ff-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Hover tag sliding up */
+    .team-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--black);
+      color: var(--white);
+      padding: 8px 16px;
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 2px solid var(--black);
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 4px 4px 0 var(--blue);
+    }
+    
+    .team-card:hover .team-tag {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* Decorative brutalist lines behind grid */
+    .team-section-wrapper {
+      position: relative;
+      background: var(--white);
+      border-bottom: var(--border);
+    }
+    
+    .team-bg-lines {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: linear-gradient(var(--black) 1px, transparent 1px),
+      linear-gradient(90deg, var(--black) 1px, transparent 1px);
+      background-size: 100px 100px;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+    
+  </style>
 
-        <div>
-          <h1 class="hero-headline">
-            WE MAKE<br>
-            <span class="accent">BOLD</span><br>
-            <span class="stroke">THINGS.</span>
-          </h1>
-        </div>
+  <!-- ═══════════════════════════════ TEAM HERO ══════════════════════════════ -->
+  <section class="team-hero">
+    <div class="team-hero-bg-text">THE TEAM THE TEAM THE TEAM</div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="hero-eyebrow" style="margin-bottom: 24px;">
+        <span class="tag" style="background: var(--black); color: var(--yellow);">✦ Meet The Crew</span>
+      </div>
+      <h1 class="hero-headline" style="font-size: clamp(52px, 8vw, 100px); color: var(--black);">
+        THE MINDS<br>
+        BEHIND THE <span class="accent" style="color: var(--white); -webkit-text-stroke: 3px var(--black);">MADNESS.</span>
+      </h1>
+      <p class="hero-desc" style="max-width: 600px; font-size: 18px; margin-top: 24px; color: var(--black);">
+        We are a collective of designers, strategists, and developers who don't do boring. Get to know the professionals crafting your next big idea.
+      </p>
+    </div>
+  </section>
 
-        <div class="hero-bottom">
-          <p class="hero-desc">
-            A fearless creative studio crafting brand identities, digital experiences & campaigns that refuse to be
-            ignored. We don't do boring.
-          </p>
-          <div class="hero-actions">
-            <a href="#work" class="btn btn--lg" id="hero-work-btn">See Our Work</a>
-            <a href="contact.html" class="btn btn--blue btn--lg" id="hero-contact-btn">Start a Project ↗</a>
+  <!-- ══════════════════════════ TEAM GRID ═══════════════════════════════ -->
+  <section class="team-section-wrapper">
+    <div class="team-bg-lines"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="team-grid">
+        
+        <!-- Team Member 1 -->
+        <div class="team-card reveal">
+          <div class="team-img-wrapper">
+            <div class="team-placeholder-icon">📷</div>
+            <!-- USER: Add real photo src here -->
+            <img src="" alt="" class="team-img">
+            <div class="team-tag">Creative Dir.</div>
+          </div>
+          <div class="team-info" style="border-top: 4px solid var(--red);">
+            <div class="team-name">John Doe</div>
+            <div class="team-role">Creative Director</div>
           </div>
         </div>
-      </div>
 
-      <div class="hero-right">
-        <div class="hero-badge">AWARD<br>WINNING<br>★ 2025 ★</div>
-
-        <div class="hero-stat-card reveal" style="transition-delay:.1s">
-          <div class="stat-number">340+</div>
-          <div class="stat-label">Projects Delivered</div>
-        </div>
-        <div class="hero-stat-card reveal" style="transition-delay:.2s">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Client Satisfaction Rate</div>
-        </div>
-        <div class="hero-stat-card reveal" style="background:var(--black); transition-delay:.3s">
-          <div class="stat-number" style="color:var(--yellow)">12+</div>
-          <div class="stat-label" style="color:#aaa;">Years of Impact</div>
+        <!-- Team Member 2 -->
+        <div class="team-card reveal" style="transition-delay: 0.1s;">
+          <div class="team-img-wrapper" style="background: var(--blue);">
+            <div class="team-placeholder-icon" style="color: var(--white);">📷</div>
+            <!-- USER: Add real photo src here -->
+            <img src="" alt="" class="team-img">
+            <div class="team-tag" style="background: var(--yellow); color: var(--black); box-shadow: 4px 4px 0 var(--black);">Lead Design</div>
+          </div>
+          <div class="team-info" style="border-top: 4px solid var(--black);">
+            <div class="team-name">Jane Smith</div>
+            <div class="team-role">Lead UI/UX Designer</div>
+          </div>
         </div>
 
-        <!-- Hand-drawn SVG icon -->
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="position:absolute;bottom:32px;left:32px;opacity:.6">
-          <circle cx="40" cy="40" r="30" stroke="#FFE500" stroke-width="3" stroke-dasharray="6 4" />
-          <path d="M25 40 L55 40 M40 25 L40 55" stroke="#FFE500" stroke-width="3" stroke-linecap="round" />
-          <circle cx="40" cy="40" r="8" fill="#FFE500" />
-        </svg>
+        <!-- Team Member 3 -->
+        <div class="team-card reveal" style="transition-delay: 0.2s;">
+          <div class="team-img-wrapper" style="background: var(--yellow);">
+            <div class="team-placeholder-icon" style="color: var(--black);">📷</div>
+            <!-- USER: Add real photo src here -->
+            <img src="" alt="" class="team-img">
+            <div class="team-tag" style="background: var(--red); box-shadow: 4px 4px 0 var(--black);">Dev Lead</div>
+          </div>
+          <div class="team-info" style="border-top: 4px solid var(--blue);">
+            <div class="team-name">Rahul Sharma</div>
+            <div class="team-role">Senior Developer</div>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-card reveal">
+          <div class="team-img-wrapper" style="background: var(--black);">
+            <div class="team-placeholder-icon" style="color: var(--white);">📷</div>
+            <!-- USER: Add real photo src here -->
+            <img src="" alt="" class="team-img">
+            <div class="team-tag" style="box-shadow: 4px 4px 0 var(--red);">Marketing</div>
+          </div>
+          <div class="team-info" style="border-top: 4px solid var(--yellow);">
+            <div class="team-name">Priya Patel</div>
+            <div class="team-role">SEO & Social Media</div>
+          </div>
+        </div>
+
+        <!-- Team Member 5 -->
+        <div class="team-card reveal" style="transition-delay: 0.1s;">
+          <div class="team-img-wrapper" style="background: #EAEAEA;">
+            <div class="team-placeholder-icon">📷</div>
+            <!-- USER: Add real photo src here -->
+            <img src="" alt="" class="team-img">
+            <div class="team-tag" style="background: var(--white); color: var(--black); box-shadow: 4px 4px 0 var(--black);">Animation</div>
+          </div>
+          <div class="team-info" style="border-top: 4px solid var(--green);">
+            <div class="team-name">Alex Kumar</div>
+            <div class="team-role">Motion Grapher</div>
+          </div>
+        </div>
+
+        <!-- Team Member 6 -->
+        <div class="team-card reveal" style="transition-delay: 0.2s;">
+          <div class="team-img-wrapper" style="background: var(--green);">
+            <div class="team-placeholder-icon" style="color: var(--black);">📷</div>
+            <!-- USER: Add real photo src here -->
+            <img src="" alt="" class="team-img">
+            <div class="team-tag" style="background: var(--black); box-shadow: 4px 4px 0 var(--white);">Strategy</div>
+          </div>
+          <div class="team-info" style="border-top: 4px solid var(--black);">
+            <div class="team-name">Sneha Gupta</div>
+            <div class="team-role">Brand Strategist</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════ TICKER ═══════════════════════════════ -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker-inner">
-      <!-- doubled for seamless loop -->
-      <span class="ticker-item">Graphic Design & Branding <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Social Media Marketing <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">SEO Optimization <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Paid Advertising <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Website Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">App Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Graphic Design & Branding <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Social Media Marketing <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">SEO Optimization <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Paid Advertising <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">Website Development <span class="ticker-dot">✦</span></span>
-      <span class="ticker-item">App Development <span class="ticker-dot">✦</span></span>
-    </div>
-  </div>
+  <style>
+    /* ─── CINEMATIC PORTFOLIO STYLES ─────────────────────────── */
+    .cinematic-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      padding-top: 40px;
+    }
+    
+    .cinematic-item {
+      position: relative;
+      width: 100%;
+      background: var(--black);
+      border: var(--border);
+      box-shadow: 12px 12px 0 var(--black);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-end;
+      min-height: 480px;
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      padding: 40px 0;
+    }
 
-  <!-- ══════════════════════════ SERVICES ═══════════════════════════════ -->
-  <section class="services" id="services">
+    .cinematic-item::before, .cinematic-item::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 0%;
+      background: var(--black);
+      z-index: 5;
+      transition: height 0.6s cubic-bezier(0.8, 0, 0.2, 1);
+    }
+    .cinematic-item::before { top: 0; }
+    .cinematic-item::after { bottom: 0; }
+    
+    .cinematic-item:hover::before, .cinematic-item:hover::after {
+      height: 12%;
+    }
+
+    .cinematic-item:hover {
+      transform: scale(1.02);
+      box-shadow: 20px 20px 0 var(--black);
+    }
+
+    .cinematic-thumb {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 10s linear, filter 0.5s ease;
+      filter: grayscale(80%) contrast(120%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 140px;
+      z-index: 1;
+    }
+
+    .cinematic-item:hover .cinematic-thumb {
+      transform: scale(1.15);
+      filter: grayscale(0%) contrast(100%);
+    }
+
+    .cinematic-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 70%);
+      z-index: 2;
+    }
+
+    /* Film grain effect */
+    .cinematic-grain {
+      position: absolute;
+      top: -50%; left: -50%; right: -50%; bottom: -50%;
+      background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+      opacity: 0.15;
+      z-index: 3;
+      pointer-events: none;
+      animation: grain 8s steps(10) infinite;
+    }
+
+    @keyframes grain {
+      0%, 100% { transform: translate(0, 0); }
+      10% { transform: translate(-5%, -10%); }
+      20% { transform: translate(-15%, 5%); }
+      30% { transform: translate(7%, -25%); }
+      40% { transform: translate(-5%, 25%); }
+      50% { transform: translate(-15%, 10%); }
+      60% { transform: translate(15%, 0%); }
+      70% { transform: translate(0%, 15%); }
+      80% { transform: translate(3%, 35%); }
+      90% { transform: translate(-10%, 10%); }
+    }
+
+    .cinematic-info {
+      position: relative;
+      z-index: 10;
+      padding: 0 60px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      color: var(--white);
+      transform: translateY(30px);
+      opacity: 0.8;
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .cinematic-item:hover .cinematic-info {
+      transform: translateY(-20px);
+      opacity: 1;
+    }
+
+    .cinematic-title {
+      font-size: 80px;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+      text-shadow: 4px 4px 0 var(--black);
+    }
+
+    .cinematic-cat {
+      font-family: var(--ff-mono);
+      font-size: 18px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .cinematic-cat::before {
+      content: 'REC';
+      color: var(--red);
+      font-size: 14px;
+      animation: blink 2s infinite;
+    }
+    
+    .cinematic-cat::after {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .cinematic-arrow {
+      font-size: 60px;
+      color: var(--white);
+      transform: rotate(-45deg);
+      transition: transform 0.4s ease;
+      text-shadow: 4px 4px 0 var(--black);
+    }
+
+    .cinematic-item:hover .cinematic-arrow {
+      transform: rotate(0deg) scale(1.2);
+      color: var(--yellow);
+    }
+    
+    @media (max-width: 768px) {
+      .cinematic-item { min-height: 350px; padding: 20px 0; }
+      .cinematic-title { font-size: 44px; }
+      .cinematic-info { flex-direction: column; align-items: flex-start; gap: 16px; padding: 0 30px; transform: translateY(20px); }
+      .cinematic-item:hover .cinematic-info { transform: translateY(0px); }
+    }
+  </style>
+
+  <!-- ════════════════════════════ PORTFOLIO ═════════════════════════════════ -->
+  <section class="work" id="portfolio" style="border-bottom: var(--border); padding-bottom: 100px;">
     <div class="container">
       <div class="section-header reveal">
-        <h2 class="section-title">What We<br>Actually Do</h2>
-        <p class="section-sub">No fluff. No filler. Just creative work that moves people and moves needles.</p>
+        <h2 class="section-title">Cinematic<br>Showcase</h2>
+        <p class="section-sub">A premium, directed look at the bold things we've made.</p>
       </div>
-      <div class="services-grid">
-
-        <!-- Graphic Design & Branding -->
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="4" width="11" height="11" stroke="#0A0A0A" stroke-width="2.5" />
-              <rect x="17" y="4" width="11" height="11" fill="#FFE500" stroke="#0A0A0A" stroke-width="2.5" />
-              <rect x="4" y="17" width="11" height="11" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="22.5" cy="22.5" r="5.5" stroke="#0A0A0A" stroke-width="2.5" />
-            </svg>
-          </div>
-          <div class="service-num">01 — Branding</div>
-          <div class="service-name">Graphic Design<br>& Branding</div>
-          <div class="service-desc">Professional and creative design services that give your brand a unique identity.</div>
-          <a href="services.html#graphic-design" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- Social Media Marketing -->
-        <div class="service-card reveal" style="transition-delay:.08s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="26" cy="6" r="4" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="6" cy="16" r="4" stroke="#0A0A0A" stroke-width="2.5" />
-              <circle cx="26" cy="26" r="4" fill="#0047FF" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="10" y1="14" x2="22" y2="8" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
-              <line x1="10" y1="18" x2="22" y2="24" stroke="#FFE500" stroke-width="2.5" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="service-num">02 — Marketing</div>
-          <div class="service-name">Social Media<br>Marketing</div>
-          <div class="service-desc">Grow your brand on social platforms with engaging content and consistent posting.</div>
-          <a href="services.html#social-media" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- SEO Optimization -->
-        <div class="service-card reveal" style="transition-delay:.16s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 28 L16 4 L28 28 Z" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round" />
-              <path d="M9 20 L23 20" stroke="#FFE500" stroke-width="3" stroke-linecap="round" />
-              <circle cx="16" cy="16" r="3.5" fill="#0047FF" stroke="#0A0A0A" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="service-num">03 — Growth</div>
-          <div class="service-name">SEO<br>Optimization</div>
-          <div class="service-desc">Improve your Google ranking and get more organic traffic with proven SEO techniques.</div>
-          <a href="services.html#seo" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- Paid Advertising -->
-        <div class="service-card reveal" style="transition-delay:.04s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 3 L29 10 L29 22 L16 29 L3 22 L3 10 Z" stroke="#0A0A0A" stroke-width="2.5"
-                stroke-linejoin="round" />
-              <path d="M3 10 L16 17 L29 10" stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round" />
-              <line x1="16" y1="17" x2="16" y2="29" stroke="#0A0A0A" stroke-width="2" />
-              <polygon points="16,3 10,9 16,12 22,9" fill="#FFE500" stroke="#0A0A0A" stroke-width="1.5" />
-            </svg>
-          </div>
-          <div class="service-num">04 — Ads</div>
-          <div class="service-name">Paid Advertising<br>(Google & Meta)</div>
-          <div class="service-desc">Run targeted ad campaigns to generate quality leads and increase sales.</div>
-          <a href="services.html#paid-ads" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- Website Development -->
-        <div class="service-card reveal" style="transition-delay:.12s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="3" width="26" height="26" rx="0" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="3" y1="10" x2="29" y2="10" stroke="#0A0A0A" stroke-width="2" />
-              <circle cx="7" cy="6.5" r="1.5" fill="#FF2D00" />
-              <circle cx="11.5" cy="6.5" r="1.5" fill="#FFE500" />
-              <circle cx="16" cy="6.5" r="1.5" fill="#00C853" />
-              <rect x="7" y="15" width="8" height="5" fill="#0047FF" />
-              <rect x="18" y="15" width="7" height="11" fill="#FFE500" stroke="#0A0A0A" stroke-width="1.5" />
-              <rect x="7" y="22" width="8" height="5" stroke="#0A0A0A" stroke-width="1.5" />
-            </svg>
-          </div>
-          <div class="service-num">05 — Web</div>
-          <div class="service-name">Website<br>Development</div>
-          <div class="service-desc">Fast, secure and responsive websites designed to convert visitors into customers.</div>
-          <a href="services.html#web-dev" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-        <!-- App Development -->
-        <div class="service-card reveal" style="transition-delay:.20s">
-          <div class="service-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="7" y="3" width="18" height="26" rx="3" stroke="#0A0A0A" stroke-width="2.5" />
-              <line x1="14" y1="25" x2="18" y2="25" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="service-num">06 — Apps</div>
-          <div class="service-name">App<br>Development</div>
-          <div class="service-desc">Modern Android and web apps built for performance, speed, and scalability.</div>
-          <a href="services.html#app-dev" class="service-arrow" style="text-decoration:none;color:inherit;display:inline-flex;">Learn More <span>→</span></a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════ PROCESS ════════════════════════════════ -->
-  <section class="process" id="process">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">How We<br>Work</h2>
-        <p class="section-sub">Our four-phase process delivers ambitious results without the chaos.</p>
-      </div>
-      <div class="process-steps">
-        <div class="step-card reveal">
-          <div class="step-number">01</div>
-          <div class="step-tag">Discovery</div>
-          <div class="step-title">Brief &<br>Research</div>
-          <div class="step-desc">We dig deep into your brand, audience, competitors, and goals before a single pixel is
-            placed.</div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.08s">
-          <div class="step-number">02</div>
-          <div class="step-tag">Concept</div>
-          <div class="step-title">Explore &<br>Ideate</div>
-          <div class="step-desc">Multiple bold directions presented as fully-formed concepts — not half-baked sketches.
-          </div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.16s">
-          <div class="step-number">03</div>
-          <div class="step-tag">Design</div>
-          <div class="step-title">Refine &<br>Execute</div>
-          <div class="step-desc">We craft and polish the chosen direction with obsessive attention to craft and
-            consistency.</div>
-        </div>
-        <div class="step-card reveal" style="transition-delay:.24s">
-          <div class="step-number">04</div>
-          <div class="step-tag">Delivery</div>
-          <div class="step-title">Launch &<br>Support</div>
-          <div class="step-desc">Clean file handoff in every format you need, plus a 30-day support window post-launch.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════ WORK ═════════════════════════════════ -->
-  <section class="work" id="work">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Selected<br>Work</h2>
-        <a href="#" class="btn" id="view-all-btn">View All Projects →</a>
-      </div>
-      <div class="work-grid">
-        <div class="work-item reveal">
-          <div class="work-thumb" style="background:#FFE500;">🎨</div>
-          <div class="work-info">
+      
+      <div class="cinematic-grid">
+        <!-- Item 1 -->
+        <div class="cinematic-item reveal">
+          <div class="cinematic-grain"></div>
+          <div class="cinematic-thumb" style="background-color: #FFE500;">🎨</div>
+          <div class="cinematic-overlay"></div>
+          <div class="cinematic-info">
             <div>
-              <div class="work-title">Zoro Beverages</div>
-              <div class="work-cat">Brand Identity</div>
+              <div class="cinematic-title">Zoro Beverages</div>
+              <div class="cinematic-cat">Brand Identity</div>
             </div>
-            <span>→</span>
+            <div class="cinematic-arrow">→</div>
           </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.06s">
-          <div class="work-thumb" style="background:#0047FF;">🚀</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Nexus Labs</div>
-              <div class="work-cat">UI / UX Design</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.04s">
-          <div class="work-thumb" style="background:#FF2D00;">🎬</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Kira Fashion</div>
-              <div class="work-cat">Packaging</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.10s">
-          <div class="work-thumb" style="background:#0A0A0A; color:#FFE500">✦</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Orbit Media</div>
-              <div class="work-cat">Motion Graphics</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-        <div class="work-item reveal" style="transition-delay:.16s">
-          <div class="work-thumb" style="background:#00C853;">📦</div>
-          <div class="work-info">
-            <div>
-              <div class="work-title">Dune Coffee</div>
-              <div class="work-cat">Brand + Print</div>
-            </div>
-            <span>→</span>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <!-- ═══════════════════════ TESTIMONIALS ══════════════════════════════ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Clients<br>Say It Best</h2>
-        <div class="tag">★★★★★ Rated 4.9/5</div>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card reveal" style="border-left:var(--border);">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Apna Graphics didn't just design our logo — they gave our entire company a personality.
-            Our rebrand drove a 60% increase in web traffic within three months.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RK</div>
-            <div>
-              <div class="testi-name">Rajesh Kumar</div>
-              <div class="testi-role">CEO — Nexus Labs</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card reveal" style="transition-delay:.08s">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">We gave them one sliding brief. They came back with three insanely different concepts.
-            The one we chose has won two regional design awards since launch.</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background:var(--red)">AP</div>
-            <div>
-              <div class="testi-name">Ananya Patel</div>
-              <div class="testi-role">Brand Director — Kira Fashion</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card reveal" style="transition-delay:.16s">
-          <div class="testi-quote">"</div>
-          <p class="testi-text">Fast, communicative, and frighteningly talented. They nailed our packaging on the first
-            round. The Dune branding is now our single biggest conversion driver.</p>
-          <div class="testi-author">
-            <div class="testi-avatar" style="background:var(--black)">SM</div>
-            <div>
-              <div class="testi-name">Sameer Mehta</div>
-              <div class="testi-role">Founder — Dune Coffee</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════ CLIENTS ══════════════════════════════ -->
-  <section class="clients">
-    <div class="container">
-      <div class="clients-label">Trusted by 80+ brands across India & beyond</div>
-      <div class="clients-row">
-        <div class="client-logo">ZORO</div>
-        <div class="client-logo">NEXUS</div>
-        <div class="client-logo">KIRA</div>
-        <div class="client-logo">ORBIT</div>
-        <div class="client-logo">DUNE</div>
-        <div class="client-logo">NOVA</div>
-        <div class="client-logo">VIBE CO</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ PRICING ═══════════════════════════════ -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2 class="section-title">Straight-Up<br>Pricing</h2>
-        <p class="section-sub">No hidden fees. No retainer surprises. Just honest, flat-rate creative work.</p>
-      </div>
-      <div class="pricing-grid">
-
-        <!-- Starter -->
-        <div class="price-card reveal" style="border-left:var(--border);">
-          <div class="price-plan">Starter</div>
-          <div class="price-amount">₹24K</div>
-          <div class="price-period">one-time project fee</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Logo design (3 concepts)
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Brand colour & type guide
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              2 rounds of revisions
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              All source files included
-            </li>
-          </ul>
-          <a href="contact.html" class="btn btn--black" id="starter-btn">Get Started →</a>
         </div>
 
-        <!-- Studio (featured) -->
-        <div class="price-card featured reveal" style="transition-delay:.08s">
-          <div class="price-popular">Most Popular</div>
-          <div class="price-plan">Studio</div>
-          <div class="price-amount">₹64K</div>
-          <div class="price-period">one-time project fee</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Full brand identity system
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Website UI design (5 screens)
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Social media template pack
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Unlimited revisions — 14 days
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0047FF" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Brand launch support
-            </li>
-          </ul>
-          <a href="contact.html" class="btn" id="studio-btn">Get Started →</a>
+        <!-- Item 2 -->
+        <div class="cinematic-item reveal">
+          <div class="cinematic-grain"></div>
+          <div class="cinematic-thumb" style="background-color: #0047FF;">🚀</div>
+          <div class="cinematic-overlay"></div>
+          <div class="cinematic-info">
+            <div>
+              <div class="cinematic-title">Nexus Labs</div>
+              <div class="cinematic-cat">UI / UX Design</div>
+            </div>
+            <div class="cinematic-arrow">→</div>
+          </div>
         </div>
 
-        <!-- Enterprise -->
-        <div class="price-card reveal" style="transition-delay:.16s">
-          <div class="price-plan">Enterprise</div>
-          <div class="price-amount">Custom</div>
-          <div class="price-period">tailored to scale</div>
-          <ul class="price-features">
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Dedicated creative team
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Monthly retainer options
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Priority turnaround
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Full-stack creative output
-            </li>
-            <li class="price-feature">
-              <div class="feat-check"><svg viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              Strategy & creative direction
-            </li>
-          </ul>
-          <a href="contact.html" class="btn btn--blue" id="enterprise-btn">Let's Talk ↗</a>
+        <!-- Item 3 -->
+        <div class="cinematic-item reveal">
+          <div class="cinematic-grain"></div>
+          <div class="cinematic-thumb" style="background-color: #FF2D00;">🎬</div>
+          <div class="cinematic-overlay"></div>
+          <div class="cinematic-info">
+            <div>
+              <div class="cinematic-title">Kira Fashion</div>
+              <div class="cinematic-cat">Packaging</div>
+            </div>
+            <div class="cinematic-arrow">→</div>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
